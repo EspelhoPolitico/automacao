@@ -1,0 +1,31 @@
+driver:
+  name: vagrant
+  customize:
+    cpus: 2
+    memory: 1024
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu-12.04
+    run_list:
+      - recipe[apt]
+      - recipe[boilerplate::apt_fast]
+  - name: debian-7.6
+    run_list:
+      - recipe[apt]
+      - recipe[boilerplate::apt_fast]
+
+suites:
+  - name: default
+    run_list:
+      - recipe[chef-dk]
+      - recipe[boilerplate::apt_fast]
+      - recipe[nodejs::nodejs_from_package]
+      - recipe[phantomjs]
+      - recipe[python]
+      - recipe[apache2]
+      - recipe[database::mysql]
+      - recipe[mysql::server]
+      - recipe[boilerplate]

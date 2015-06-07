@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - 2.1.0
+bundler_args: --full-index --jobs=4 --without integration development
+cache:
+  - bundler
+script:
+  - bundle ex foodcritic -f any --tags ~FC001 --tags ~FC014 .
+  - bundle ex rspec --color --format progress
+  - bundle ex rubocop
+notifications:
+  email:
+    on_success: never  # default: change
+    on_failure: always # default: always

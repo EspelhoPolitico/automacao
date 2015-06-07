@@ -1,0 +1,47 @@
+{
+  "name": "boilerplate",
+  "description": "Installs/Configures boilerplate",
+  "long_description": "Description\n===========\nThis cookbook's goal is to provide the best and dead simple way to start new web application project. Provides basic applications no matter what language you use.\n\n[![Build Status](https://travis-ci.org/topaz2/chef_boilerplate.png?branch=master)](https://travis-ci.org/topaz2/chef_boilerplate)\n[![Dependency Status](https://gemnasium.com/topaz2/chef_boilerplate.png)](https://gemnasium.com/topaz2/chef_boilerplate)\n[![Code Climate](https://codeclimate.com/github/topaz2/chef_boilerplate.png)](https://codeclimate.com/github/topaz2/chef_boilerplate)\n[![Coverage Status](https://coveralls.io/repos/topaz2/chef_boilerplate/badge.png?branch=master)](https://coveralls.io/r/topaz2/chef_boilerplate)\n\nContaining following\n\n| Category | Application |\n| -------- | ----------- |\n| HTTP Server | apache |\n| DB | mysql |\n| BTS | gitlab (default), redmine |\n| CI | jenkins |\n| VCS | git, subversion |\n| Editor | emacs, vim |\n| Utils | guard, jasmine, juicer, etc... |\n\nFollowing cookbooks are language specific boilerplates.\n\n* https://github.com/topaz2/chef_boilerplate_php\n\nRequirements\n============\n* Chef: 11.x+\n* Ruby: 1.9+\n\nDefault Settings\n================\n\n| Application | URL | ID : PASS |\n| ----------- | --- | --------- |\n| gitlab | http://gitlab.local:8081/ | admin@local.host : 5iveL!fe |\n| jenkins | http://jenkins.local:9090/ | - |\n\nAttributes\n==========\n\nUsage\n=====\n\n## How to use in a recipe\n```\ninclude_recipe 'boilerplate'\n```\n## Configuration\n### Clone git repository and install gitlab, jenkins into example.com\n\n```sh\n$ cat nodes/example.json\n{\n    \"boilerplate\": {\n        \"country\": \"jp\",\n        \"app\": {\n            \"repo\": {\n                \"type\": \"git\",\n                \"uri\": \"https://github.com/your/repo\"\n            }\n        },\n        \"gitlab\": {\n            \"host\": \"example.com\"\n        },\n        \"jenkins\": {\n            \"host\": \"example.com\"\n        }\n    }\n}\n```\n\n### Choose fastest package mirror from jp (Default: us)\n```sh\n$ cat nodes/example.json\n{\n    \"boilerplate\": {\n        \"country\": \"jp\"\n    }\n}\n```\n\n### Stop installing specific applicaiton\n#### Stop installing jenkins\n```sh\n$ cat nodes/example.json\n{\n    \"boilerplate\": {\n        \"jenkins\": false\n    }\n}\n```\n\n### Set /vagrant as DocumentRoot\n```sh\n$ cat nodes/example.json\n{\n    \"boilerplate\": {\n        \"document_root\": \"/vagrant\"\n    }\n}\n```\n\nLicense and Authors\n===================\n\n* Author:: Jun Nishikawa <topaz2@m0n0m0n0.com>\n\n* Copyright (C) 2014, Jun Nishikawa <topaz2@m0n0m0n0.com>\n\nThis program is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program.  If not, see <http://www.gnu.org/licenses/>.\n\n",
+  "maintainer": "topaz2",
+  "maintainer_email": "topaz2@m0n0m0n0.com",
+  "license": "GPL v3",
+  "platforms": {
+    "debian": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0"
+  },
+  "dependencies": {
+    "apache2": ">= 0.0.0",
+    "chef-dk": ">= 0.0.0",
+    "database": ">= 0.0.0",
+    "mysql": ">= 0.0.0",
+    "nodejs": ">= 0.0.0",
+    "phantomjs": ">= 0.0.0",
+    "python": ">= 0.0.0",
+    "ruby": ">= 0.0.0"
+  },
+  "recommendations": {
+
+  },
+  "suggestions": {
+
+  },
+  "conflicting": {
+
+  },
+  "providing": {
+
+  },
+  "replacing": {
+
+  },
+  "attributes": {
+
+  },
+  "groupings": {
+
+  },
+  "recipes": {
+
+  },
+  "version": "0.5.10"
+}

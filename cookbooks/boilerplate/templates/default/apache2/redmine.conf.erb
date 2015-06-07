@@ -1,0 +1,12 @@
+PassengerRuby /usr/bin/ruby1.8
+PassengerAppRoot /usr/share/redmine
+<VirtualHost *:80>
+  ServerName <%= node[:boilerplate][:redmine][:host] %>
+  ServerAdmin webmaster@localhost
+
+  DocumentRoot /var/www/redmine
+  RailsBaseURI /redmine
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>

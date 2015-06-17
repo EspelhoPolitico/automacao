@@ -26,5 +26,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
     }
     
-  end    
+  end
+
+  config.vm.provision "shell", path: "install_basics.sh"
+  config.vm.provision "shell", path: "install_pip.sh"
+
 end

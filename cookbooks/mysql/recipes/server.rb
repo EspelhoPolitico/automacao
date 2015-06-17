@@ -22,9 +22,7 @@
 
 if Chef::Config[:solo]
   missing_attrs = %w[
-    server_debian_password
     server_root_password
-    server_repl_password
   ].select { |attr| node['mysql'][attr].nil? }.map { |attr| %Q{node['mysql']['#{attr}']} }
 
   unless missing_attrs.empty?
@@ -33,9 +31,9 @@ if Chef::Config[:solo]
   end
 else
   # generate all passwords
-  node.set_unless['mysql']['server_debian_password'] = secure_password
+  # node.set_unless['mysql']['server_debian_password'] = secure_password
   node.set_unless['mysql']['server_root_password']   = secure_password
-  node.set_unless['mysql']['server_repl_password']   = secure_password
+  # node.set_unless['mysql']['server_repl_password']   = secure_password
   node.save
 end
 

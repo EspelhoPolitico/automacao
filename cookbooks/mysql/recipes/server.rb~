@@ -22,7 +22,13 @@
 
 if Chef::Config[:solo]
   missing_attrs = %w[
+<<<<<<< HEAD
+    server_debian_password
     server_root_password
+    server_repl_password
+=======
+    server_root_password
+>>>>>>> gerencia_configuracao
   ].select { |attr| node['mysql'][attr].nil? }.map { |attr| %Q{node['mysql']['#{attr}']} }
 
   unless missing_attrs.empty?

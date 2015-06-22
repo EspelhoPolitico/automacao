@@ -11,7 +11,24 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 3306, host: 3306, auto_correct: true # MySQL
 
   config.omnibus.chef_version = "12.3.0"
-  config.vm.provision "chef_solo" do |chef|
+  config.vm.provision :chef_solo do |chef|
+
     chef.add_recipe "espelho-politico::default"
-  end    
+    chef.json = {
+        :mysql => {
+            server_root_password: 'root123'
+        },
+       
+        "espelho-politico" => {
+            user: 'vagrant',
+            linux_user: 'vagrant',
+            database_user_password: 'root123'
+      }
+    }
+    
+  end
+
+  config.vm.provision "shell", path: "install_basics.sh"
+  config.vm.provision "shell", path: "install_pip.sh"
+
 end

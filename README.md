@@ -8,12 +8,15 @@ Para instalar o Espelho Político em uma máquina virtual local, através do Vag
 4. Baixar a imagem base (vagrant box add ubuntu/trusty64)
 
 Criar máquina virtual:
+
 $ vagrant up
 
->> Pronto! <<
+**Pronto!**
 
 Se quiser reexecutar a receita ou em caso de erro na criação da VM:
+
 $ vagrant provision
 
 Para entrar na máquina virtual:
+
 $ vagrant ssh

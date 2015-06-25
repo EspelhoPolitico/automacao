@@ -21,27 +21,27 @@ $ vagrant ssh
 
 #Instalação Jenkins
 
-*Seguir até o passo 10 do tutorial
+Seguir até o passo 10 do tutorial
 
 http://www.webascender.com/Blog/ID/522/Setting-up-Jenkins-for-GitHub-Rails-Rspec#.VYs90_lVikp
 
-*no passo 9 instalar:
+no passo 9 instalar:
 
-sudo apt-get install mysql-client libmysqlclient-dev
-sudo apt-get install libsqlite3-dev
-sudo apt-get install rake 
+1. sudo apt-get install mysql-client libmysqlclient-dev
+2. sudo apt-get install libsqlite3-dev
+3. sudo apt-get install rake 
 
-*Depois logar com o usuário:
+Depois logar com o usuário:
 
-usuario: admin
-senha: jenkins
-nome: Jenkins
+* usuario: admin
+* senha: jenkins
+* nome: Jenkins
 
-*Comando do shell:
+Comando do shell:
 
-cp config/database.jenkins.yml config/database.yml
-bundle install
-rake db:create --trace
-RAILS_ENV=test bundle exec rake db:migrate --trace
-bundle exec rspec
+* cp config/database.jenkins.yml config/database.yml
+* bundle install
+* rake db:create --trace
+* RAILS_ENV=test bundle exec rake db:migrate --trace
+* bundle exec rspec
 

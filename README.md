@@ -42,8 +42,8 @@ $ sudo su - jenkins
 3. Criar um arquivo com o nome .config na pasta raiz (/var/lib/jenkins):
 
 ```
-[user]<br />
-  name = Jenkins<br />
+[user]
+  name = Jenkins
   email = jenkins@localhost
 ```
 
@@ -61,9 +61,9 @@ $ sudo su - jenkins
 * Crie um usuário com as seguintes especificações:
 
 ```
-usuario: admin<br />
-senha: jenkins<br />
-nome: Espelho Politico<br />
+usuario: admin
+senha: jenkins
+nome: Espelho Politico
 email: "coloque o seu email"
 ```
 
@@ -75,10 +75,10 @@ email: "coloque o seu email"
 * Embaixo de “Adicionar passos da build”, selecione “Execute shell”. Escreva o seguinte comando de shell:
 
 ```
-$ cp config/database.jenkins.yml config/database.yml<br />
-$ bundle install<br />
-$ rake db:create --trace<br />
-$ RAILS_ENV=test bundle exec rake db:migrate --trace<br />
+$ cp config/database.jenkins.yml config/database.yml
+$ bundle install
+$ rake db:create --trace
+$ RAILS_ENV=test bundle exec rake db:migrate --trace
 $ bundle exec rspec
 ```
 

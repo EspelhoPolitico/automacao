@@ -75,11 +75,11 @@ email: "coloque o seu email"
 * Embaixo de “Adicionar passos da build”, selecione “Execute shell”. Escreva o seguinte comando de shell:
 
 ```
-$ cp config/database.jenkins.yml config/database.yml
-$ bundle install
-$ rake db:create --trace
-$ RAILS_ENV=test bundle exec rake db:migrate --trace
-$ bundle exec rspec
+cp config/database.jenkins.yml config/database.yml
+bundle install
+rake db:create --trace
+RAILS_ENV=test bundle exec rake db:migrate --trace
+bundle exec rspec
 ```
 
 **Pronto!**

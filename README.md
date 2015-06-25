@@ -22,22 +22,28 @@ $ vagrant ssh
 #Instalação do Jenkins
 
 1. Instalar o Jenkins:
-
+'''
 $ wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
 $ sudo apt-get update
 $ sudo apt-get install jenkins
+'''
 
 2. Logar como um usuário Jenkins:
+'''
 $ sudo su - jenkins
+'''
 
 3. Criar um arquivo com o nome .config na pasta raiz (/var/lib/jenkins):
 
-[user]
-  name = Jenkins
+'''
+[user]<br />
+  name = Jenkins<br />
   email = jenkins@localhost
+'''
 
 4. Entrar em  http://localhost:8080:
+
 * Vá em “Gerenciar Jenkins” depois “Gerenciar Plugins”
 * Na aba “Disponível”, procure e selecione os plugins: git, gitHub, rbenv e rake
 * Pressione o botão 'Baixar agora, instalar e depois reiniciar'
@@ -49,10 +55,12 @@ $ sudo su - jenkins
 * O sistema irá reiniciar, então vá em criar nova conta
 * Crie um usuário com as seguintes especificações:
 
-usuario: admin,
-senha: jenkins,
-nome: Espelho Politico,
+'''
+usuario: admin<br />
+senha: jenkins<br />
+nome: Espelho Politico<br />
 email: "coloque o seu email"
+'''
 
 * Vá em "Gerenciar Jenkins", depois "Gerenciar Usuários" e crie o usuário “github”
 * Volte para a página principal, clique em “Novo job”, selecione “Build a free-style software project” e “OK"
@@ -61,11 +69,13 @@ email: "coloque o seu email"
 * Selecione a caixa “rbenv build wrapper”
 * Embaixo de “Adicionar passos da build”, selecione “Execute shell”. Escreva o seguinte comando de shell:
 
-$ cp config/database.jenkins.yml config/database.yml
-$ bundle install
-$ rake db:create --trace
-$ RAILS_ENV=test bundle exec rake db:migrate --trace
+'''
+$ cp config/database.jenkins.yml config/database.yml<br />
+$ bundle install<br />
+$ rake db:create --trace<br />
+$ RAILS_ENV=test bundle exec rake db:migrate --trace<br />
 $ bundle exec rspec
+'''
 
 **Pronto!**
 

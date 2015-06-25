@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network "forwarded_port", guest: 3000, host: 3000 # Rails
   config.vm.network "forwarded_port", guest: 3306, host: 3306, auto_correct: true # MySQL
+  config.vm.network "forwarded_port", guest: 8080, host: 8080 # Jenkins
 
   config.omnibus.chef_version = "12.3.0"
   config.vm.provision :chef_solo do |chef|
